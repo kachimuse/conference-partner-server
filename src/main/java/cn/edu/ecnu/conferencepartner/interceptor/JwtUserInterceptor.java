@@ -3,8 +3,6 @@ package cn.edu.ecnu.conferencepartner.interceptor;
 import cn.edu.ecnu.conferencepartner.common.context.UserContext;
 import cn.edu.ecnu.conferencepartner.common.exception.BaseException;
 import cn.edu.ecnu.conferencepartner.common.utils.JwtUtil;
-import cn.edu.ecnu.conferencepartner.common.vo.CommonResult;
-import com.alibaba.fastjson2.JSON;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -13,8 +11,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
-
-import java.io.IOException;
 
 /**
  * 拦截器，用于校验 JWT 令牌并设置线程上下文

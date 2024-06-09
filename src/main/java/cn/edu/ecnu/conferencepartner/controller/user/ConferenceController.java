@@ -7,7 +7,6 @@ import cn.edu.ecnu.conferencepartner.common.vo.CommonResult;
 import cn.edu.ecnu.conferencepartner.common.vo.PageVO;
 import cn.edu.ecnu.conferencepartner.service.IConferenceService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

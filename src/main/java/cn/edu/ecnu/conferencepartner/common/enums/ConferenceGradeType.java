@@ -3,6 +3,11 @@ package cn.edu.ecnu.conferencepartner.common.enums;
 import com.baomidou.mybatisplus.annotation.EnumValue;
 import lombok.Getter;
 
+/**
+ * 会议等级 类型
+ * @author 龚奕玮
+ * @since 2024-06-09
+ */
 @Getter
 public enum ConferenceGradeType {
     OTHERS(0),

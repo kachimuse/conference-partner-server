@@ -1,11 +1,9 @@
 package cn.edu.ecnu.conferencepartner.common.dto;
 
-import cn.edu.ecnu.conferencepartner.common.enums.ConferenceGradeType;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.time.LocalDate;
-import java.time.Year;
 
 @Schema(name = "新增会议数据传输对象")
 @Data

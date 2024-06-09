@@ -2,13 +2,9 @@ package cn.edu.ecnu.conferencepartner.mapper;
 
 import cn.edu.ecnu.conferencepartner.common.dto.ConferencePageQueryDTO;
 import cn.edu.ecnu.conferencepartner.common.po.Conference;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 
 /**
  * <p>

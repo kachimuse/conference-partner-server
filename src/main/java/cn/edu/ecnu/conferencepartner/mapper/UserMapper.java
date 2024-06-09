@@ -3,7 +3,6 @@ package cn.edu.ecnu.conferencepartner.mapper;
 import cn.edu.ecnu.conferencepartner.common.po.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
 
 /**
  * <p>

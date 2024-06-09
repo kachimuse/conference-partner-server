@@ -1,16 +1,11 @@
 package cn.edu.ecnu.conferencepartner.common.vo;
 
 import cn.edu.ecnu.conferencepartner.common.enums.UserStatusType;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.List;
 
 @Schema(name = "用户视图对象")
 @Data

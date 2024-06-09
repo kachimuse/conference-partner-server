@@ -19,6 +19,7 @@
         <mybatisplus.version>3.5.6</mybatisplus.version>
         <hutool.version>5.8.27</hutool.version>
         <jjwt.version>0.12.5</jjwt.version>
+        <fastjson.version>2.0.51</fastjson.version>
     </properties>
     <dependencies>
         <dependency>
@@ -80,7 +81,7 @@
         <dependency>
             <groupId>com.alibaba.fastjson2</groupId>
             <artifactId>fastjson2</artifactId>
-            <version>2.0.51</version>
+            <version>${fastjson.version}</version>
         </dependency>
     </dependencies>
 

@@ -12,10 +12,7 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
- * <p>
- * 用户关注会议表
- * </p>
- *
+ * 用户关注会议 PO
  * @author 龚奕玮
  * @since 2024-06-07
  */

@@ -12,9 +12,7 @@ import cn.edu.ecnu.conferencepartner.mapper.UserMapper;
 import cn.edu.ecnu.conferencepartner.common.vo.UserVO;
 import cn.edu.ecnu.conferencepartner.service.IUserService;
 import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.date.DateUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
@@ -23,7 +21,6 @@ import org.springframework.util.DigestUtils;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.Date;
 
 /**
  * <p>

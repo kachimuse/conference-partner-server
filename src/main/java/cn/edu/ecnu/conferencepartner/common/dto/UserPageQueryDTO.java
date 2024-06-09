@@ -1,7 +1,5 @@
 package cn.edu.ecnu.conferencepartner.common.dto;
 
-import cn.edu.ecnu.conferencepartner.common.enums.UserStatusType;
-import com.baomidou.mybatisplus.annotation.TableField;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

@@ -11,9 +11,6 @@ import cn.edu.ecnu.conferencepartner.mapper.UserConferenceMapper;
 import cn.edu.ecnu.conferencepartner.service.IConferenceService;
 import cn.edu.ecnu.conferencepartner.common.utils.PageUtil;
 import cn.hutool.core.bean.BeanUtil;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +20,6 @@ import java.time.LocalDateTime;
 import java.time.Year;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Consumer;
 
 /**
  * <p>
