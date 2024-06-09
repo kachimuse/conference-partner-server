@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    cn.edu.ecnu.conferencepartner: debug
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/conference_partner
+    username: root
+    password: 123456
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    default-enum-type-handler: com.baomidou.mybatisplus.core.handlers.MybatisEnumTypeHandler
+
+springdoc:
+  default-flat-param-object: true
+
+conference-partner:
+  jwt:
+    secret-key: oW6nKZHzMePnDMOTxULx9Dg6Is8GIZ7EaaAneXGSqGo=
+    time-to-live: 3600  # 令牌有效期，单位为秒
