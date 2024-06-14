@@ -10,8 +10,8 @@ import lombok.Getter;
  */
 @Getter
 public enum CodeType {
-    ERROR(0, "失败"),
-    SUCCESS(1, "成功");
+    SUCCESS(0, "成功"),
+    ERROR(1, "失败");
 
     @EnumValue
     private final int value;

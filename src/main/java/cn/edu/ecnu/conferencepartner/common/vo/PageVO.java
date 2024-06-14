@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-@Schema(name = "分页查询展示数据")
+@Schema(description = "分页查询展示数据")
 @Data
 public class PageVO<T> {
 

@@ -1,0 +1,4 @@
+conference-partner:
+  database:
+    host: mysql
+    password: 123456

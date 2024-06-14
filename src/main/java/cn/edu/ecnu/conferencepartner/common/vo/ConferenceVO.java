@@ -8,7 +8,7 @@ import lombok.Data;
 import java.time.LocalDate;
 import java.time.Year;
 
-@Schema(name = "会议展示数据")
+@Schema(description = "会议展示数据")
 @Data
 @Builder
 public class ConferenceVO {

@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 
-@Schema(name = "会议分页查询请求数据传输对象")
+@Schema(description = "会议分页查询请求数据传输对象")
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class ConferencePageQueryDTO extends PageQueryDTO {
@@ -16,6 +16,6 @@ public class ConferencePageQueryDTO extends PageQueryDTO {
     @Schema(description = "年份")
     private Integer year;
 
-    @Schema(description = "等级")
+    @Schema(description = "等级 3为CCF-A 2为CCF-B 1为CCF-C 0为其他")
     private Integer grade;
 }

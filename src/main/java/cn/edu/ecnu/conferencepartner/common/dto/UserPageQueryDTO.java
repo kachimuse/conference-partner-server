@@ -6,7 +6,7 @@ import lombok.EqualsAndHashCode;
 
 import java.time.LocalDate;
 
-@Schema(name = "用户分页查询请求数据传输对象")
+@Schema(description = "用户分页查询请求数据传输对象")
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class UserPageQueryDTO extends PageQueryDTO {
@@ -20,7 +20,7 @@ public class UserPageQueryDTO extends PageQueryDTO {
     @Schema(description = "用户所属机构")
     private String institution;
 
-    @Schema(description = "用户状态")
+    @Schema(description = "用户状态 1为正常 0为冻结")
     private Integer status;
 
     @Schema(description = "用户是否为管理员")

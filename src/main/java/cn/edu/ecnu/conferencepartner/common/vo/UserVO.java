@@ -7,7 +7,7 @@ import lombok.Data;
 
 import java.time.LocalDate;
 
-@Schema(name = "用户视图对象")
+@Schema(description = "用户视图对象")
 @Data
 @Builder
 public class UserVO {

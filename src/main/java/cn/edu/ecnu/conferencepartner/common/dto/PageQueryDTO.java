@@ -3,7 +3,7 @@ package cn.edu.ecnu.conferencepartner.common.dto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
-@Schema(name = "分页查询请求数据传输对象")
+@Schema(description = "分页查询请求数据传输对象")
 @Data
 public class PageQueryDTO {
 
@@ -11,7 +11,7 @@ public class PageQueryDTO {
     private Integer pageNum = 1;
 
     @Schema(description = "每页展示数量")
-    private Integer pageSize = 5;
+    private Integer pageSize = 10;
 
     @Schema(description = "排序字段")
     private String sortedBy;

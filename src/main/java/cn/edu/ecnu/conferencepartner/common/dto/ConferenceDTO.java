@@ -5,7 +5,7 @@ import lombok.Data;
 
 import java.time.LocalDate;
 
-@Schema(name = "新增会议数据传输对象")
+@Schema(description = "新增会议数据传输对象")
 @Data
 public class ConferenceDTO {
 
@@ -15,7 +15,7 @@ public class ConferenceDTO {
     @Schema(description = "会议简称")
     private String abbrev;
 
-    @Schema(description = "会议等级")
+    @Schema(description = "会议等级 3为CCF-A 2为CCF-B 1为CCF-C 0为其他")
     private Integer grade;
 
     @Schema(description = "会议全称")
@@ -36,7 +36,7 @@ public class ConferenceDTO {
     @Schema(description = "会议地点")
     private String location;
 
-    @Schema(description = "会议届数")
+    @Schema(description = "会议届数 0为未知")
     private Integer session;
 
     @Schema(description = "会议链接")

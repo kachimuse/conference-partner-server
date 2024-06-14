@@ -1,0 +1,4 @@
+conference-partner:
+  database:
+    host: localhost
+    password: 123456

@@ -6,11 +6,15 @@ logging:
     cn.edu.ecnu.conferencepartner: debug
 
 spring:
+  application:
+    name: conference-partner
+  profiles:
+    active: local
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/conference_partner
+    url: jdbc:mysql://${conference-partner.database.host}:3306/conference_partner?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai
     username: root
-    password: 123456
+    password: ${conference-partner.database.password}
 
 mybatis-plus:
   configuration:

@@ -3,7 +3,7 @@ package cn.edu.ecnu.conferencepartner.controller.user;
 import cn.edu.ecnu.conferencepartner.common.dto.UserLoginDTO;
 import cn.edu.ecnu.conferencepartner.common.dto.UserRegisterDTO;
 import cn.edu.ecnu.conferencepartner.common.utils.JwtUtil;
-import cn.edu.ecnu.conferencepartner.common.vo.CommonResult;
+import cn.edu.ecnu.conferencepartner.common.vo.CommonResponseVO;
 import cn.edu.ecnu.conferencepartner.common.vo.UserVO;
 import cn.edu.ecnu.conferencepartner.service.IUserService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -35,7 +35,7 @@ public class LoginController {
 
     @Operation(summary = "用户登录")
     @PostMapping("/login")
-    public CommonResult<?> login(@RequestBody UserLoginDTO userLoginDTO) throws Exception {
+    public CommonResponseVO<?> login(@RequestBody UserLoginDTO userLoginDTO) throws Exception {
         log.info("用户登录：{}", userLoginDTO);
         UserVO user = userService.login(userLoginDTO);
 
@@ -48,14 +48,14 @@ public class LoginController {
         String token = JwtUtil.createJWT(secretKey, timeToLive, claims);
 
         log.info("Genearate JWT token for user " + user.getEmail() + " (id = " + user.getId() + "): " + token);
-        return CommonResult.success(token);
+        return CommonResponseVO.success(token);
     }
 
     @Operation(summary = "用户注册")
     @PostMapping("/register")
-    public CommonResult<?> register(@RequestBody UserRegisterDTO userRegisterDTO) {
+    public CommonResponseVO<?> register(@RequestBody UserRegisterDTO userRegisterDTO) {
         log.info("用户注册：{}", userRegisterDTO);
         userService.register(userRegisterDTO);
-        return CommonResult.success();
+        return CommonResponseVO.success();
     }
 }
