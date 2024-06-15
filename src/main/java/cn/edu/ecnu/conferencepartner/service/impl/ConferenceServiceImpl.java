@@ -2,6 +2,7 @@ package cn.edu.ecnu.conferencepartner.service.impl;
 
 import cn.edu.ecnu.conferencepartner.common.dto.ConferenceDTO;
 import cn.edu.ecnu.conferencepartner.common.dto.ConferencePageQueryDTO;
+import cn.edu.ecnu.conferencepartner.common.exception.DataNotFoundException;
 import cn.edu.ecnu.conferencepartner.common.po.Conference;
 import cn.edu.ecnu.conferencepartner.common.po.UserConference;
 import cn.edu.ecnu.conferencepartner.common.vo.ConferenceVO;
@@ -55,6 +56,9 @@ public class ConferenceServiceImpl extends ServiceImpl<ConferenceMapper, Confere
     @Override
     public ConferenceVO queryById(Long id) {
         Conference conference = getById(id);
+        if (conference == null) {
+            throw new DataNotFoundException("会议不存在");
+        }
         return BeanUtil.copyProperties(conference, ConferenceVO.class);
     }
 

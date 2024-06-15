@@ -24,7 +24,5 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
         registry.addInterceptor(jwtUserInterceptor)
                 .addPathPatterns("/account/**")
                 .addPathPatterns("/conferences/*/follow");
-
-        WebMvcConfigurer.super.addInterceptors(registry);
     }
 }

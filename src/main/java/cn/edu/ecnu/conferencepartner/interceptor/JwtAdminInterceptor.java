@@ -1,7 +1,9 @@
 package cn.edu.ecnu.conferencepartner.interceptor;
 
 import cn.edu.ecnu.conferencepartner.common.context.UserContext;
-import cn.edu.ecnu.conferencepartner.common.exception.BaseException;
+import cn.edu.ecnu.conferencepartner.common.exception.BusinessException;
+import cn.edu.ecnu.conferencepartner.common.exception.ForbiddenException;
+import cn.edu.ecnu.conferencepartner.common.exception.UnauthorizedException;
 import cn.edu.ecnu.conferencepartner.common.utils.JwtUtil;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
@@ -27,8 +29,7 @@ public class JwtAdminInterceptor implements HandlerInterceptor {
         //获取 JWT 令牌
         String authorizationHeader = request.getHeader("Authorization");
         if (authorizationHeader == null || !authorizationHeader.startsWith("Bearer ")) {
-            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            throw new BaseException("The Authorization header is missing or invalid.");
+            throw new UnauthorizedException("缺失或非法的Authorization请求头");
         }
         String token = authorizationHeader.substring("Bearer ".length());
         //解析 JWT 令牌
@@ -36,14 +37,12 @@ public class JwtAdminInterceptor implements HandlerInterceptor {
         try {
             claims = JwtUtil.parseJWT(secretKey, token);
         } catch (JwtException e) {
-            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            throw new BaseException("The JWT token is invalid.");
+            throw new UnauthorizedException("非法的token字段");
         }
         //检查管理员权限
         boolean isAdmin = (boolean) claims.get("admin");
         if (!isAdmin) {
-            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            throw new BaseException("The account does not have administrator right.");
+            throw new ForbiddenException("用户无管理员权限");
         }
         //设置线程上下文
         UserContext.set(Long.valueOf(claims.get("userId").toString()));

@@ -2,7 +2,8 @@ package cn.edu.ecnu.conferencepartner.service.impl;
 
 import cn.edu.ecnu.conferencepartner.common.dto.AccountDTO;
 import cn.edu.ecnu.conferencepartner.common.dto.PasswordDTO;
-import cn.edu.ecnu.conferencepartner.common.exception.BaseException;
+import cn.edu.ecnu.conferencepartner.common.exception.BusinessException;
+import cn.edu.ecnu.conferencepartner.common.exception.DataNotFoundException;
 import cn.edu.ecnu.conferencepartner.common.po.User;
 import cn.edu.ecnu.conferencepartner.common.vo.AccountVO;
 import cn.edu.ecnu.conferencepartner.mapper.UserMapper;
@@ -20,7 +21,7 @@ public class AccountServiceImpl extends ServiceImpl<UserMapper, User> implements
     public AccountVO queryById(Long userId) {
         User user = this.getById(userId);
         if (user == null) {
-            throw new BaseException("User ID does not exist.");
+            throw new DataNotFoundException("用户不存在");
         }
         AccountVO accountVO = BeanUtil.copyProperties(user, AccountVO.class);
         accountVO.setRegisterDate(user.getCreateTime().toLocalDate());
@@ -33,7 +34,7 @@ public class AccountServiceImpl extends ServiceImpl<UserMapper, User> implements
         String newPassword = passwordDTO.getNewPassword();
 
         if (!this.getById(userId).getPassword().equals(DigestUtils.md5DigestAsHex(oldPassword.getBytes()))) {
-            throw new BaseException("密码错误");
+            throw new BusinessException("密码错误");
         }
 
         this.updateById(User.builder()

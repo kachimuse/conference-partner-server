@@ -11,6 +11,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -53,6 +55,7 @@ public class LoginController {
 
     @Operation(summary = "用户注册")
     @PostMapping("/register")
+    @CrossOrigin
     public CommonResponseVO<?> register(@RequestBody UserRegisterDTO userRegisterDTO) {
         log.info("用户注册：{}", userRegisterDTO);
         userService.register(userRegisterDTO);

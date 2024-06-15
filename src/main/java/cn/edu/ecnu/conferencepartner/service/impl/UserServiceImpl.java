@@ -4,7 +4,9 @@ import cn.edu.ecnu.conferencepartner.common.dto.UserLoginDTO;
 import cn.edu.ecnu.conferencepartner.common.dto.UserPageQueryDTO;
 import cn.edu.ecnu.conferencepartner.common.dto.UserRegisterDTO;
 import cn.edu.ecnu.conferencepartner.common.enums.UserStatusType;
-import cn.edu.ecnu.conferencepartner.common.exception.BaseException;
+import cn.edu.ecnu.conferencepartner.common.exception.BusinessException;
+import cn.edu.ecnu.conferencepartner.common.exception.DataNotFoundException;
+import cn.edu.ecnu.conferencepartner.common.exception.ForbiddenException;
 import cn.edu.ecnu.conferencepartner.common.po.User;
 import cn.edu.ecnu.conferencepartner.common.utils.PageUtil;
 import cn.edu.ecnu.conferencepartner.common.vo.PageVO;
@@ -39,17 +41,17 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
         if (user == null) {
             //用户不存在
-            throw new BaseException("用户未注册");
+            throw new DataNotFoundException("用户不存在");
         }
 
         if (!user.getPassword().equals(DigestUtils.md5DigestAsHex(loginDTO.getPassword().getBytes()))) {
             //密码错误
-            throw new BaseException("密码错误");
+            throw new BusinessException("密码错误");
         }
 
         if (user.getStatus() == UserStatusType.FREEZED) {
             //用户被冻结
-            throw new BaseException("用户被冻结");
+            throw new ForbiddenException("用户被冻结");
         }
 
         //修改最后登录时间
@@ -81,6 +83,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     @Override
     public UserVO queryById(Long id) {
         User user = this.getById(id);
+        if (user == null) {
+            throw new DataNotFoundException("用户不存在");
+        }
         UserVO userVO = BeanUtil.copyProperties(user, UserVO.class);
         userVO.setLastLoginDate(user.getLastLoginTime().toLocalDate());
         return userVO;

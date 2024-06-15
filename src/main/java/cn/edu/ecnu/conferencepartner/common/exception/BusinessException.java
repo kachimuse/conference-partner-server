@@ -5,9 +5,9 @@ package cn.edu.ecnu.conferencepartner.common.exception;
  * @author 龚奕玮
  * @since 2024-06-09
  */
-public class BaseException extends RuntimeException {
+public class BusinessException extends RuntimeException {
 
-    public BaseException(String msg) {
+    public BusinessException(String msg) {
         super(msg);
     }
 }
