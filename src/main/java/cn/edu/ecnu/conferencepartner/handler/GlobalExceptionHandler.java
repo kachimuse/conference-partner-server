@@ -48,7 +48,7 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(ForbiddenException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ResponseStatus(HttpStatus.FORBIDDEN)
     public CommonResponseVO<?> handleForbiddenException(ForbiddenException ex) {
         ex.printStackTrace();
         log.error(ex.getMessage());
