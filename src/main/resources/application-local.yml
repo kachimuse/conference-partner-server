@@ -1,4 +1,7 @@
 conference-partner:
+  server:
+    port: 8086
   database:
+    port: 3306
     host: localhost
     password: 123456

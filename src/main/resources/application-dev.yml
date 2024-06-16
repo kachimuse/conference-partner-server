@@ -1,4 +1,7 @@
 conference-partner:
+  server:
+    port: 8080
   database:
+    port: 3306
     host: mysql
     password: 123456

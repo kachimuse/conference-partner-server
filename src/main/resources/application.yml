@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: ${conference-partner.server.port}
 
 logging:
   level:
@@ -9,10 +9,10 @@ spring:
   application:
     name: conference-partner
   profiles:
-    active: local
+    active: dev
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://${conference-partner.database.host}:3306/conference_partner?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://${conference-partner.database.host}:${conference-partner.database.port}/conference_partner?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai
     username: root
     password: ${conference-partner.database.password}
 
