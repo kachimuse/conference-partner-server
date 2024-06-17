@@ -9,7 +9,7 @@ spring:
   application:
     name: conference-partner
   profiles:
-    active: dev
+    active: local
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://${conference-partner.database.host}:${conference-partner.database.port}/conference_partner?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai
