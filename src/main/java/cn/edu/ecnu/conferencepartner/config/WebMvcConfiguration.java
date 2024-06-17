@@ -1,5 +1,6 @@
 package cn.edu.ecnu.conferencepartner.config;
 
+import cn.edu.ecnu.conferencepartner.interceptor.CorsInterceptor;
 import cn.edu.ecnu.conferencepartner.interceptor.JwtAdminInterceptor;
 import cn.edu.ecnu.conferencepartner.interceptor.JwtUserInterceptor;
 import lombok.RequiredArgsConstructor;
@@ -14,11 +15,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @RequiredArgsConstructor
 public class WebMvcConfiguration implements WebMvcConfigurer {
 
+    private final CorsInterceptor corsInterceptor;
     private final JwtAdminInterceptor jwtAdminInterceptor;
     private final JwtUserInterceptor jwtUserInterceptor;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(corsInterceptor)
+                .addPathPatterns("/**");
         registry.addInterceptor(jwtAdminInterceptor)
                 .addPathPatterns("/admin/**");
         registry.addInterceptor(jwtUserInterceptor)
