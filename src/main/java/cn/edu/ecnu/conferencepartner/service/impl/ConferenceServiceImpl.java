@@ -17,6 +17,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.awt.desktop.QuitEvent;
 import java.time.LocalDateTime;
 import java.time.Year;
 import java.util.HashMap;
@@ -38,6 +39,10 @@ public class ConferenceServiceImpl extends ServiceImpl<ConferenceMapper, Confere
 
     @Override
     public PageVO<ConferenceVO> queryByConditionAndPage(ConferencePageQueryDTO query) {
+        if (query.getSortedBy() == null && query.getIsAsc() == null) {
+            query.setSortedBy("deadline");
+            query.setIsAsc(false);
+        }
         Page<Conference> page = PageUtil.toMybatisPlusPage(query);
         String name = query.getName();
         Year year = query.getYear() != null ? Year.of(query.getYear()) : null;
